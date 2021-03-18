@@ -20,9 +20,9 @@ before_script:
 - sfdx --version
 - sfdx plugins --core
 - sfdx force:auth:jwt:grant --clientid $CONSUMERKEY --jwtkeyfile assets/server.key
-  --username $USERNAME --setdefaultdevhubusername --setalias traviscisalesforce
+  --username $USERNAME --setdefaultdevhubusername --setalias HubOrg
 script:
-- sfdx force:org:create --targetdevhubusername traviscisalesforce --setdefaultusername --definitionfile
+- sfdx force:org:create --targetdevhubusername HubOrg --setdefaultusername --definitionfile
   config/project-scratch-def.json --setalias ciorg --wait 10 --durationdays 1
 - sfdx force:org:display --targetusername ciorg
 - sfdx force:source:push --targetusername ciorg
