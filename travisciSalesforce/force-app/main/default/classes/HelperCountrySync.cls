@@ -6,7 +6,6 @@ public with sharing class HelperCountrySync {
         httpReq.setHeader('Content-Type', 'application/json');
         httpReq.setTimeout(1000);
         System.debug('Http Requset=' + httpReq);
-
         //-- 2. sending the httpRequest and getting the httpResponse
         Http http = new Http();
         HttpResponse httpRes;
@@ -15,6 +14,7 @@ public with sharing class HelperCountrySync {
             httpRes = http.send(httpReq);
             System.debug('body: ' + httpRes.getBody());
         } catch (System.CalloutException e) {
+            System.debug('test travis-ci');
             System.debug(e.getMessage());
         }
         list<Country__c> countryList = new list<Country__c>();
