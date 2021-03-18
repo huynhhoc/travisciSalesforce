@@ -26,7 +26,6 @@ public with sharing class HelperCountrySync {
                 List<Object> data = (List<Object>)JSON.deserializeUntyped(JSON.serialize(rules0.get('regionalBlocs')));
                 Country__c anCountry= new Country__c();
                 if (data.size() > 0){
-                   // Map<String,Object> mapAcronym = (Map<String,Object>)data[0];
                     anCountry.RegionalBlocs__c  = ((Map<String,Object>)data[0]).get('acronym').toString();
                 }
                 anCountry.Name__c  = rules0.get('name').toString();
