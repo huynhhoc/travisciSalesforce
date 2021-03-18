@@ -1,0 +1,33 @@
+<apex:page controller="CountryHandler" showHeader="false" sidebar="false">
+    <apex:form id="thfrm">
+        <br/><br/>
+        <center>
+            <p style="font-size:20px;">
+                <u>Passing Parameter using Java Script</u>
+            </p>
+            Country Name :<input type='text' id='txtCountry' value=''/>
+            <input type="button" id="btnSearch" value='Search' onclick="getCountryListJS();"/><br/><br/>
+        </center>
+        <apex:actionFunction name="FindCountry" action="{!getCountryList}" reRender="pbtbl">
+            <apex:param value="" name="CountryName"/>
+        </apex:actionFunction>
+        <apex:pageBlock id="pbtbl">
+            <apex:pageBlockTable value="{!lstCountries}" var="a">
+                <apex:column value="{!a.id}"/>
+                <apex:column value="{!a.Name__c}"/>
+                <apex:column value="{!a.Capital__c}"/>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+    <script>
+        function getCountryListJS(){
+            var searchString=document.getElementById('txtCountry').value;
+            if(searchString!=null && searchString!='' && searchString!=undefined){
+                FindCountry(searchString); //action function
+            }
+            else{
+                FindCountry(''); //action function
+            }
+        }
+    </script>
+</apex:page>

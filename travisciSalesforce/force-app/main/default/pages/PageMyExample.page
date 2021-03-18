@@ -1,0 +1,24 @@
+<apex:page controller="myExample">
+<apex:pageMessages id="msgs"/>
+<apex:form id="form">
+
+        <apex:actionFunction name="updateFields" action="{!updateCurrentRecord}" rerender="msgs" 
+                    oncomplete="Javascript:alert('test');">
+            <apex:param name="inputTextField" value="" assignTo="{!inputText}"/>
+        </apex:actionFunction>
+
+        <input type="text" id="someText"/>
+        <button onclick="onClickScreen();" type="button">Click Me</button>
+</apex:form>
+<script>
+    function onClickScreen(){
+
+        var number = document.getElementById("someText").value;
+        console.log(number);
+        updateFields(number);
+    }
+    function onClickCancel(){
+        cancel();
+    }
+</script>
+</apex:page>

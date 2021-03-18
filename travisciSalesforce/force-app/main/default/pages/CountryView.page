@@ -1,0 +1,51 @@
+<apex:page controller="Countries">
+   <apex:pageBlock title="Hello {!$User.FirstName}!">
+     <apex:outputText value="RecordId: "/>
+     <apex:outputText value="{!$User.FirstName}"/>
+     <apex:outputLink value="{!URLFOR('/apex/Country?id=a092v00003Ki25G')}">Go to Country
+     </apex:outputLink>
+     <apex:outputLink value="{!URLFOR('/apex/Page52')}">Go to page52
+     </apex:outputLink>
+     <apex:outputLink value="{!URLFOR('/apex/FindCountry')}">Find Country
+     </apex:outputLink>
+     <apex:outputLink value="{!URLFOR('/apex/PageMyExample')}">Action Function
+     </apex:outputLink>
+
+     <apex:outputLink value="{!URLFOR('/apex/TransientExample')}">Transient Example
+     </apex:outputLink>
+
+     <apex:outputLink value="{!URLFOR('/apex/VariablePage')}">Variable Page
+     </apex:outputLink>
+
+     <apex:form >
+         <apex:commandButton value="a092v00003Ki25G" action="{!redirectCountry}">
+            <apex:param name="id" value="a092v00003Ki25G"/>
+         </apex:commandButton>
+      </apex:form>
+   </apex:pageBlock>
+   <apex:pageBlock title="Country" id="countries_list">
+      <apex:pageBlockTable value="{!Countries}" var="ct">
+         <apex:column >
+            <apex:form >
+               <apex:commandButton value="{!ct.Id}" action="{!redirectCountry}">
+                  <apex:param name="id" value="{!ct.Id}"/>
+               </apex:commandButton>
+            </apex:form>
+         </apex:column>
+         <apex:column value="{!ct.Name__c}" headerClass="colHeadr">
+            <apex:facet name="header">
+                <apex:form >
+                    <apex:commandLink action="{! sortByFirstName }"
+                        reRender="countries_list">Name
+                    </apex:commandLink>
+                </apex:form>
+            </apex:facet>
+         </apex:column>
+         <apex:column value="{!ct.Capital__c}"/>
+         <apex:column value="{!ct.Region__c}"/>
+      </apex:pageBlockTable>
+   </apex:pageBlock>
+   <style type = "text/css">
+      .colHeadr {text-align:center;}
+  </style>
+</apex:page>

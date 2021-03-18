@@ -1,0 +1,9 @@
+<apex:page controller="Country">
+<apex:form >
+    <apex:pageBlock title="Update Information of Country">
+        idCountry: <apex:outputText value="{!idCountry}"/>
+        Country Name: <apex:inputField value="{!country.Name__c}"/>
+        <apex:commandButton action="{!save}" value="save" />
+    </apex:pageBlock>
+</apex:form>
+</apex:page>

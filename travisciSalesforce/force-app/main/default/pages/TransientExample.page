@@ -1,0 +1,10 @@
+<apex:page controller="TransientExample">
+  T1: {!t1} <br/>
+  T2: {!t2} <br/>
+  <c:MyComponent textValue="This Text is blue" textColor="blue" />
+  <br/>
+  <c:MyComponent textValue="But this is red" textColor="red" />
+  <apex:form >
+    <apex:commandLink value="refresh"/>
+  </apex:form>
+</apex:page>

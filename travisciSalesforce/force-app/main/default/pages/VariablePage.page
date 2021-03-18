@@ -1,0 +1,10 @@
+<apex:page controller="RepeaterCon">
+    <apex:variable value="{!1}" var="rowNum"/>
+    <apex:repeat value="{!collection}" var="row">
+        ({!rowNum}){!row}<br/>
+        <apex:variable var="rowNum" value="{!rowNum + 1}"/>
+    </apex:repeat>
+    <apex:dataList value="{!collection}" var="row" type="1">
+        {!row}
+    </apex:dataList>
+</apex:page>
