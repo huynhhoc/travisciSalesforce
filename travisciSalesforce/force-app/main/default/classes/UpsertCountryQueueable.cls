@@ -2,7 +2,7 @@ public class UpsertCountryQueueable implements Queueable, Database.AllowsCallout
 
     public void execute(QueueableContext context) {
         List<Country__c> upsertList = HelperCountrySync.insertNew();
-        System.debug('Start: upsert country .......');
+        System.debug('Start: bat dau upsert country .......');
         Database.upsert(upsertList, false);
         System.debug('End: upsert country .........');
     }
